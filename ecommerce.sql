@@ -1,0 +1,58 @@
+DROP DATABASE IF EXISTS ecommerce;
+CREATE DATABASE ecommerce;
+USE ecommerce;
+
+CREATE TABLE admin(
+id INTEGER NOT NULL AUTO_INCREMENT,
+admin_id VARCHAR (255),
+admin_pwd VARCHAR (255,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE users(
+id INTEGER NOT NULL AUTO_INCREMENT,
+address VARCHAR (255),
+age INTEGER,
+date_added DATETIME,
+emailid VARCHAR (255),
+fname  VARCHAR (255),
+lname  VARCHAR (255),
+pwd VARCHAR (255,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE category(
+id INTEGER NOT NULL AUTO_INCREMENT,
+name VARCHAR (255),
+PRIMARY KEY (id)
+);
+
+CREATE TABLE eproduct(
+ID BIGINT NOT NULL AUTO_INCREMENT,
+name VARCHAR (255),
+price DECIMAL(10,2),
+date_added TIMESTAMP NULL DEFAULT NULL,
+category_id BIGINT,
+PRIMARY KEY (ID)
+);
+
+
+
+CREATE TABLE purchases(
+id BIGINT NOT NULL AUTO_INCREMENT,
+date DATETIME NOT NULL,
+gross_total DECIMAL(19,2),
+user_id BIGINT,
+PRIMARY KEY (id)
+);
+
+CREATE TABLE purchase_items(
+id BIGINT NOT NULL AUTO_INCREMENT,
+price DECIMAL(19,2),
+product_id BIGINT,
+purchase_id BIGINT,
+qty INTEGER,
+rate DECIMAL(19,2),
+user_id BIGINT,
+PRIMARY KEY (id)
+);
